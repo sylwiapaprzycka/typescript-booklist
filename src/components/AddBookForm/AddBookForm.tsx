@@ -1,18 +1,18 @@
 import React, {useState } from 'react';
 import { randomID } from '../../utils/randomId';
 import { Book } from '../../interfaces/Book.interface';
+import { useDispatch } from 'react-redux';
+import { addBook as addBookAction } from './../../redux/booksRedux';
+
 import './AddBookForm.css';
 
-interface Props {
-  addBook: (book: Book) => void
-  // deleteBook: (book: Book) => void
-}
-
-
-const AddBookForm: React.FC<Props> = ({ addBook }) => {
+const AddBookForm: React.FC = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [price, setPrice] = useState(0);
+
+  const dispatch = useDispatch();
+  const addBook = (book: Book) => dispatch(addBookAction(book));
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()

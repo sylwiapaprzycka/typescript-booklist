@@ -4,13 +4,13 @@ import './BookItem.css';
 
 interface Props {
   book: Book;
-  deleteBook: (id: string) => void
+  removeBook: (id: string) => void
 }
 
-const BookItem: React.FC<Props> = ({ book, deleteBook }) => {
+const BookItem: React.FC<Props> = ({ book, removeBook }) => {
 
   const handleRemove = () => {
-    deleteBook(book.id)
+    removeBook(book.id)
   }
   return(
       <li className="book-item">
