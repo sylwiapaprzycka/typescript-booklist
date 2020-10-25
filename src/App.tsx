@@ -20,8 +20,13 @@ const booksData: Book[] = [
 
 const App: React.FC = () => {
   const [books, setBooks] = useState(booksData);
+
   const addBook = (book: Book) => {
     setBooks([...books, book])
+  }
+
+  const deleteBook = (id: string) => {
+    setBooks(books.filter(book => book.id !== id));
   }
 
   return (
@@ -29,7 +34,7 @@ const App: React.FC = () => {
       <header>
          <h1>Books App</h1>
       </header>
-      <BooksList books={ books } />
+      <BooksList books={ books } deleteBook={ deleteBook } />
       <AddBookForm addBook={ addBook } />
     </div>
   );

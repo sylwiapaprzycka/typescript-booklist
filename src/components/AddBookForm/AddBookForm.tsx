@@ -5,6 +5,7 @@ import './AddBookForm.css';
 
 interface Props {
   addBook: (book: Book) => void
+  // deleteBook: (book: Book) => void
 }
 
 
