@@ -3,13 +3,13 @@ import { Book } from './../../interfaces/Book.interface';
 import BookItem from '../BookItem/BookItem';
 import { useSelector, useDispatch } from 'react-redux';
 import { StoreState } from './../../redux/mainTypes';
-import { removeBook as removeBookAction } from './../../redux/booksRedux';
+import { removeBook as removeBookAction, getAllBooks } from './../../redux/booksRedux';
 
 import './BooksList.css';
 
 
 const BooksList: React.FC = () => {
-  const books = useSelector((state: StoreState) => state.books);
+  const books = useSelector((state: StoreState) => getAllBooks(state));
   const dispatch = useDispatch();
   const removeBook = (id: string) => dispatch(removeBookAction(id));
   return (

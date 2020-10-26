@@ -1,5 +1,6 @@
 import { ADD_BOOK, REMOVE_BOOK, BookAction, BooksState } from './booksTypes' ;
 import { Book } from '../interfaces/Book.interface';
+import { StoreState } from './mainTypes';
 
 /* ACTIONS */
 
@@ -22,3 +23,5 @@ const reducer = (statePart: BooksState = [], action: BookAction): BooksState => 
 }
 
 export default reducer;
+
+export const getAllBooks = (state: StoreState): BooksState => state.books;

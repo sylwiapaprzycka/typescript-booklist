@@ -10,7 +10,6 @@ const AddBookForm: React.FC = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [price, setPrice] = useState(0);
-
   const dispatch = useDispatch();
   const addBook = (book: Book) => dispatch(addBookAction(book));
 
@@ -23,6 +22,9 @@ const AddBookForm: React.FC = () => {
       price
     }
     addBook(book);
+    setTitle('');
+    setAuthor('');
+    setPrice(0);
   }
 
   return (
